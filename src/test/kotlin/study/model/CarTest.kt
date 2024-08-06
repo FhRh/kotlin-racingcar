@@ -35,6 +35,5 @@ class CarTest {
         //then
         assertEquals(expected, result)
         System.setOut(originalOut)
-
     }
 }
