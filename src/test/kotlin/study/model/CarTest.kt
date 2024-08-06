@@ -21,12 +21,12 @@ class CarTest {
     @Test
     fun `자동차의 위치를 출력한다`(){
         //given
-        val expected = "apple : --- "
+        val expected = "apple : ---"
         val car = Car("apple",3)
 
         val outputStream = ByteArrayOutputStream()
         val originalOut = System.out
-        System.setOut(PrintStream(ByteArrayOutputStream()))
+        System.setOut(PrintStream(outputStream))
 
         //when
         car.printNowPosition()
