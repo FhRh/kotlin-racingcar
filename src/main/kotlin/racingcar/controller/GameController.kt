@@ -1,5 +1,6 @@
 package racingcar.controller
 
+import racingcar.model.Cars
 import racingcar.utils.GameInputer
 import racingcar.view.GameAnnouncer
 
