@@ -1,5 +1,6 @@
 package racingcar.controller
 
+import racingcar.model.Car
 import racingcar.model.Cars
 import racingcar.model.RandomDice
 import racingcar.utils.GameInputer
@@ -12,7 +13,8 @@ class GameController {
     fun ready(){
         GameAnnouncer.askForCarNames()
         val carNames = GameInputer.getCarNames()
-        cars?.initCars(carNames)
+        val carList = carNames.map { name -> Car(name) }
+        cars = Cars(carList)
 
         GameAnnouncer.askForRounds()
         val inputRounds = GameInputer.getRounds()

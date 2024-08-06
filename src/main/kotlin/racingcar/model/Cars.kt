@@ -4,11 +4,6 @@ class Cars(private val carList:List<Car>) {
     val size: Int
         get() = carList.size
 
-    fun initCars(carNames : List<String>) : Cars{
-        val carList = carNames.map{name -> Car(name)}
-        return Cars(carList)
-    }
-
     fun getCarList():List<Car>{
         return carList.map{it.copy()}
     }

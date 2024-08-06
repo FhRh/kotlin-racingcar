@@ -21,6 +21,7 @@ class CarsTest {
         //then
         val result = cars.getCarList()
 
+        print(cars)
         assertEquals(expected, result)
     }
 
