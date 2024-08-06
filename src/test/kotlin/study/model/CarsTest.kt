@@ -17,10 +17,10 @@ class CarsTest {
         cars.initCars(carNames)
 
         //then
-        val resultNames = cars.carList.map{it.name}
+        val resultNames = cars.getCarList().map{it.name}
         assertEquals(expectedNames, resultNames)
 
-        val resultPositions = cars.carList.map{it.position}
+        val resultPositions = cars.getCarList().map{it.position}
         assertEquals(expectedPositions, resultPositions)
 
     }
