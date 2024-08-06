@@ -10,4 +10,12 @@ class Cars() {
     fun getCarList():List<Car>{
         return carList.map{it.copy()}
     }
+
+    fun moveCar(index : Int){
+        carList[index-1].move()
+    }
+
+    fun getSize():Int{
+        return carList.size
+    }
 }

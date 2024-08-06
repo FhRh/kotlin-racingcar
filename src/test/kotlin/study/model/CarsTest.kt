@@ -34,11 +34,10 @@ class CarsTest {
         cars.initCars(carNames)
 
         //when
-        cars.move(1)
+        cars.moveCar(1)
 
         //then
         val carList = cars.getCarList()
         assertEquals(carList[0].position, 1)
-
     }
 }

@@ -33,7 +33,7 @@ class GameController {
         for(i in 1..carNum){
             val diceNum = RandomDice.rollDice()
             if(diceNum>=4){
-                cars.move(i)
+                cars.moveCar(i)
             }
         }
     }
