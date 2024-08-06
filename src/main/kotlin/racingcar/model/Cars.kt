@@ -23,12 +23,14 @@ class Cars(private val carList:List<Car>) {
     }
 
     fun printWinners(){
-        val winners : List<String> = getWinners()
+        val winners : List<String> = getWinnerNames()
         val winnerNames = winners.joinToString(", ") { it }
         println("최종 우승자 : $winnerNames")
     }
 
-    private fun getWinners():List<String>{
-        return listOf("yet")
+    fun getWinnerNames():List<String>{
+        val maxPosition = carList.maxOf { it.position }
+        return carList.filter { it.position == maxPosition }
+            .map { it.name }
     }
 }
