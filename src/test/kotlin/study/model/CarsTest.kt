@@ -1,37 +1,37 @@
 package study.model
 
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import racingcar.model.Car
 import racingcar.model.Cars
 
 class CarsTest {
-    private val cars = Cars()
 
     @Test
     fun `자동차 이름 리스트로 자동차 객체들의 집합을 생성한다`(){
         //given
-        val carNames : List<String> = listOf("apple", "banana", "cherry")
-        val expectedNames : List<String> = listOf("apple", "banana", "cherry")
-        val expectedPositions : List<Int> = listOf(0,0,0)
+        val car1 = Car("apple")
+        val car2 = Car("banana")
+        val car3 = Car("cherry")
+        val expected = listOf(car1, car2, car3)
 
         //when
-        cars.initCars(carNames)
+        val cars = Cars(listOf(car1,car2,car3))
 
         //then
-        val resultNames = cars.getCarList().map{it.name}
-        assertEquals(expectedNames, resultNames)
+        val result = cars.getCarList()
 
-        val resultPositions = cars.getCarList().map{it.position}
-        assertEquals(expectedPositions, resultPositions)
-
+        assertEquals(expected, result)
     }
 
     @Test
     fun `특정 위치의 자동차를 한 칸 움직인다`(){
         //given
-        val carNames : List<String> = listOf("apple", "banana", "cherry")
-        cars.initCars(carNames)
+        val expected = 1
+        val car1 = Car("apple")
+        val car2 = Car("banana")
+        val car3 = Car("cherry")
+        val cars = Cars(listOf(car1,car2,car3))
 
         //when
         cars.moveCar(1)
@@ -39,5 +39,12 @@ class CarsTest {
         //then
         val carList = cars.getCarList()
         assertEquals(carList[0].position, 1)
+    }
+
+    @Test
+    fun `가장 멀리나간 자동차를 찾는다`(){
+        //given
+        //when
+        //then
     }
 }

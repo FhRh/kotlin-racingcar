@@ -6,13 +6,13 @@ import racingcar.utils.GameInputer
 import racingcar.view.GameAnnouncer
 
 class GameController {
-    private val cars = Cars()
+    private var cars : Cars? = null
     private var rounds = 0
 
     fun ready(){
         GameAnnouncer.askForCarNames()
         val carNames = GameInputer.getCarNames()
-        cars.initCars(carNames)
+        cars?.initCars(carNames)
 
         GameAnnouncer.askForRounds()
         val inputRounds = GameInputer.getRounds()
@@ -27,17 +27,18 @@ class GameController {
     }
 
     fun end() {
+        cars?.printWinners()
     }
 
     private fun processRound(){
-        val carNum = cars.getSize()
+        val carNum = cars?.size ?:0
         for(i in 1..carNum){
             val diceNum = RandomDice.rollDice()
             if(diceNum>=4){
-                cars.moveCar(i)
+                cars?.moveCar(i)
             }
         }
 
-        cars.printCarsPositions()
+        cars?.printCarsPositions()
     }
 }

@@ -1,10 +1,12 @@
 package racingcar.model
 
-class Cars() {
-    private var carList : List<Car> = ArrayList()
-    fun initCars(carNames : List<String>){
-        val cars = carNames.map {Car(it)}
-        carList = cars
+class Cars(private val carList:List<Car>) {
+    val size: Int
+        get() = carList.size
+
+    fun initCars(carNames : List<String>) : Cars{
+        val carList = carNames.map{name -> Car(name)}
+        return Cars(carList)
     }
 
     fun getCarList():List<Car>{
@@ -15,11 +17,18 @@ class Cars() {
         carList[index-1].move()
     }
 
-    fun getSize():Int{
-        return carList.size
-    }
-
     fun printCarsPositions(){
         carList.forEach{it.printNowPosition()}
+        println()
+    }
+
+    fun printWinners(){
+        val winners : List<String> = getWinners()
+        val winnerNames = winners.joinToString(", ") { it }
+        println("최종 우승자 : $winnerNames")
+    }
+
+    private fun getWinners():List<String>{
+        return listOf("yet")
     }
 }
