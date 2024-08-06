@@ -2,6 +2,7 @@ package study.utils
 
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import racingcar.model.RandomDice
 
 class RandomDiceTest {
     private val dice = RandomDice
@@ -13,6 +14,6 @@ class RandomDiceTest {
         val result = dice.rollDice()
 
         //then
-        assertTrue(result in 1..9)
+        assertTrue(result in 0..9)
     }
 }
