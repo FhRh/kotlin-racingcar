@@ -10,7 +10,7 @@ import java.io.InputStream
 class GameInputerTest {
     private val gameInputer = GameInputer
     @Test
-    fun 자동차_이름을_입력받아_쉼표_기준으로_구분한다(){
+    fun `자동차_이름을_입력받아_쉼표_기준으로_구분한다`(){
         //given
         val expected: List<String> = listOf("apple", "banana", "cherry")
         val input = "apple,banana,cherry"
