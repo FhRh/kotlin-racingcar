@@ -18,4 +18,8 @@ class Cars() {
     fun getSize():Int{
         return carList.size
     }
+
+    fun printCarsPositions(){
+        carList.forEach{it.printNowPosition()}
+    }
 }

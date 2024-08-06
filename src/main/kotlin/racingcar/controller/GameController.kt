@@ -20,6 +20,7 @@ class GameController {
     }
 
     fun process() {
+        GameAnnouncer.printProcess()
         for (i in 1..rounds) {
             processRound()
         }
@@ -36,5 +37,7 @@ class GameController {
                 cars.moveCar(i)
             }
         }
+
+        cars.printCarsPositions()
     }
 }
