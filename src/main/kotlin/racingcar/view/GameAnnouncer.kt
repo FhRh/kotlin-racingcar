@@ -1,5 +1,7 @@
 package racingcar.view
 
+import racingcar.model.Cars
+
 object GameAnnouncer {
     private const val NAME_INPUT_DESCRIPTION = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분)."
     private const val ROUNDS_INPUT_DESCRIPTION = "시도할 횟수는 몇 회인가요?"
@@ -8,12 +10,16 @@ object GameAnnouncer {
     fun askForCarNames(){
         println(NAME_INPUT_DESCRIPTION)
     }
-
     fun askForRounds() {
         println(ROUNDS_INPUT_DESCRIPTION)
     }
-
-    fun printProcess(){
+    fun printCarPositions(cars : Cars){
+        cars.printCarsPositions()
+    }
+    fun printWinners(cars: Cars) {
+        cars.printWinners()
+    }
+    fun printProcess() {
         println(PROCESSING_DESCRIPTION)
     }
 }
