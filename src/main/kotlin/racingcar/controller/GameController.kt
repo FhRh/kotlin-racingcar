@@ -3,7 +3,7 @@ package racingcar.controller
 import racingcar.model.Car
 import racingcar.model.Cars
 import racingcar.model.RandomDice
-import racingcar.utils.GameInputer
+import racingcar.view.GameInputer
 import racingcar.view.GameAnnouncer
 
 class GameController {

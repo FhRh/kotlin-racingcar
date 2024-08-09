@@ -1,4 +1,4 @@
-package racingcar.utils
+package racingcar.view
 
 object GameInputer {
     fun getCarNames() : List<String>{
