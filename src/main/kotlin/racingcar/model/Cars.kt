@@ -5,16 +5,12 @@ class Cars(private val carList:List<Car>) {
         get() = carList.size
 
     init{
-        val nameSet = mutableSetOf<String>()
-        for (car in carList) {
-            if (!nameSet.add(car.name)) {
-                throw IllegalArgumentException("중복된 차 이름이 있습니다 : ${car.name}")
-            }
-        }
+        val carNames = carList.map {it.name}.toSet()
+        require(carNames.size == carList.size) { "중복된 차 이름이 있습니다" }
     }
 
     fun getCarList():List<Car>{
-        return carList.map{it.copy()}
+        return carList
     }
 
     fun moveCar(index : Int){

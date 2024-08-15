@@ -17,9 +17,10 @@ class GameController {
         val rounds = GameInputer.getRounds()
 
         GameAnnouncer.printProcess()
-        for (i in 1..rounds) {
+        repeat(rounds){
             processRound(cars)
         }
+
         val winners = resolveWinners(cars)
         GameAnnouncer.printWinners(winners)
     }
