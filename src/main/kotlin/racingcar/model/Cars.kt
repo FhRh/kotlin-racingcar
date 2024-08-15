@@ -20,21 +20,4 @@ class Cars(private val carList:List<Car>) {
     fun moveCar(index : Int){
         carList[index-1].move()
     }
-
-    fun printCarsPositions(){
-        carList.forEach{it.printNowPosition()}
-        println()
-    }
-
-    fun printWinners(){
-        val winners : List<String> = getWinnerNames()
-        val winnerNames = winners.joinToString(", ") { it }
-        println("최종 우승자 : $winnerNames")
-    }
-
-    fun getWinnerNames():List<String>{
-        val maxPosition = carList.maxOf { it.position }
-        return carList.filter { it.position == maxPosition }
-            .map { it.name }
-    }
 }

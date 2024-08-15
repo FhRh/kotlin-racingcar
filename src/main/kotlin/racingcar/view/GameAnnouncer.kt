@@ -1,5 +1,6 @@
 package racingcar.view
 
+import racingcar.model.Car
 import racingcar.model.Cars
 
 object GameAnnouncer {
@@ -14,12 +15,23 @@ object GameAnnouncer {
         println(ROUNDS_INPUT_DESCRIPTION)
     }
     fun printCarPositions(cars : Cars){
-        cars.printCarsPositions()
+        cars.getCarList().forEach{printCarPosition(it)}
+        println()
     }
     fun printWinners(cars: Cars) {
-        cars.printWinners()
+        val carList = cars.getCarList()
+        val maxPosition = carList.maxOf { it.position }
+        val winners = carList.filter { it.position == maxPosition }
+            .map { it.name }
+
+        val winnerNames = winners.joinToString(", ") { it }
+        println("최종 우승자 : $winnerNames")
     }
     fun printProcess() {
         println(PROCESSING_DESCRIPTION)
+    }
+
+    fun printCarPosition(car : Car){
+        println(car.name+" : "+("-".repeat(car.position)))
     }
 }

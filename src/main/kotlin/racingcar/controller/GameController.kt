@@ -22,7 +22,6 @@ class GameController {
         }
 
         GameAnnouncer.printWinners(cars)
-
     }
 
     private fun processRound(cars: Cars) {
