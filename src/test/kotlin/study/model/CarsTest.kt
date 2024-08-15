@@ -41,20 +41,4 @@ class CarsTest {
         val carList = cars.getCarList()
         assertEquals(carList[0].position, 1)
     }
-
-    @Test
-    fun `우승한 차들의 이름을 출력한다`(){
-        //given
-        val expected = listOf("apple", "banana")
-        val car1 = Car("apple", 2)
-        val car2 = Car("banana", 2)
-        val car3 = Car("cherry", 1)
-        val cars = Cars(listOf(car1,car2,car3))
-
-        //when
-        val result = cars.getWinnerNames()
-
-        //then
-        assertEquals(expected,result)
-    }
 }

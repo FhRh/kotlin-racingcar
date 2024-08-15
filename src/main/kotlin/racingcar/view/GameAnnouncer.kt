@@ -18,13 +18,9 @@ object GameAnnouncer {
         cars.getCarList().forEach{printCarPosition(it)}
         println()
     }
-    fun printWinners(cars: Cars) {
-        val carList = cars.getCarList()
-        val maxPosition = carList.maxOf { it.position }
-        val winners = carList.filter { it.position == maxPosition }
-            .map { it.name }
-
-        val winnerNames = winners.joinToString(", ") { it }
+    fun printWinners(winners : Cars) {
+        val winnerList = winners.getCarList()
+        val winnerNames = winnerList.joinToString(", ") { it.name }
         println("최종 우승자 : $winnerNames")
     }
     fun printProcess() {

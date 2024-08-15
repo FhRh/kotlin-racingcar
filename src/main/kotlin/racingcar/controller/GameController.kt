@@ -20,8 +20,8 @@ class GameController {
         for (i in 1..rounds) {
             processRound(cars)
         }
-
-        GameAnnouncer.printWinners(cars)
+        val winners = resolveWinners(cars)
+        GameAnnouncer.printWinners(winners)
     }
 
     private fun processRound(cars: Cars) {
@@ -32,5 +32,13 @@ class GameController {
             }
         }
         GameAnnouncer.printCarPositions(cars)
+    }
+
+    private fun resolveWinners(cars : Cars) : Cars{
+        val carList = cars.getCarList()
+        val maxPosition = carList.maxOf { it.position }
+        val winners = carList.filter { it.position == maxPosition }
+            .map { it }
+        return Cars(winners)
     }
 }
