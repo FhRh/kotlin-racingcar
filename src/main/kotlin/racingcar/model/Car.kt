@@ -1,6 +1,8 @@
 package racingcar.model
 
-data class Car (val name : String, var position : Int = 0){
+class Car (val name : String, position : Int = 0){
+    var position = position
+        private set
     init {
         require(name.isNotBlank()) { "이름은 공백일 수 없습니다." }
         require(name.matches(Regex("^[a-zA-Z]+$"))) { "이름은 영어 대소문자로 이루어져있어야 합니다." }
